@@ -21,13 +21,13 @@
         <form class="well">
 
             <label for="name">Name</label>
-            <input type="text" name="name" ng-model="newcontact.name" placeholder="username" />
+            <input type="text" name="name" ng-model="newcontact.name" placeholder="Username" />
 
             <label for="email">Email</label>
-            <input type="email" name="email" ng-model="newcontact.email" placeholder="email">
+            <input type="email" name="email" ng-model="newcontact.email" placeholder="Email">
 
             <label for="phone">Phone</label>
-            <input type="text" name="phone" ng-model="newcontact.phone" placeholder="phone number">
+            <input type="text" name="phone" ng-model="newcontact.phone" placeholder="Phone number">
 
             <br>
             <input type="hidden" ng-model="newcontact.id">
@@ -56,8 +56,8 @@
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.phone }}</td>
                     <td>
-                        <a href="#" ng-click="edit(contact.id)">edit</a> |
-                        <a href="#" ng-click="delete(contact.id)">delete</a>
+                        <a href="#" ng-click="edit(contact.id)">Edit</a> |
+                        <a href="#" ng-click="delete(contact.id)">Delete</a>
                     </td>
 
                 </tr>
