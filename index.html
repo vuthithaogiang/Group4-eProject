@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <h1>Angular JS CRUD data JSON file</h1>
+    <script src="/js/data.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    
+   
+</head>
+<body>
+    <br>
+
+    <div ng-app="App" ng-controller="ContactController">
+        <form class="well">
+
+            <label for="name">Name</label>
+            <input type="text" name="name" ng-model="newcontact.name" placeholder="username" />
+
+            <label for="email">Email</label>
+            <input type="email" name="email" ng-model="newcontact.email" placeholder="email">
+
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" ng-model="newcontact.phone" placeholder="phone number">
+
+            <br>
+            <input type="hidden" ng-model="newcontact.id">
+            <br>
+
+            <input type="button" value="Save" ng-click="saveContact()" class="btn btn-primary">
+
+
+
+        </form>
+
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="contact in contacts">
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>
+                        <a href="#" ng-click="edit(contact.id)">edit</a> |
+                        <a href="#" ng-click="delete(contact.id)">delete</a>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</body>
+</html>

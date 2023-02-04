@@ -1,0 +1,43 @@
+*{
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 10px;
+}
+
+table{
+    margin-top: 10px;
+    border: 1px solid blue;
+}
+
+table th,
+td{
+    border: 1px solid blue;
+}
+
+.well{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.well input{
+    max-width: 450px;
+    margin-bottom: 5px;
+    border-radius: 5px ;
+    border-color: #999;
+    padding: 5px;
+}
+
+.well label{
+    color: #555;
+}
+
+.btn-primary{
+    width: 100px;
+    margin-top: -30px;
+    margin-left: 160px;
+    
+}
