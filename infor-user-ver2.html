@@ -28,34 +28,45 @@
 
         <!--add information-->
         <h3>Add new account</h3>
-        <form name="main.addForm" class="form" ng-submit="main.addShow()">
-            <div class="form-group">
+        <form name="main.addForm" class="form" ng-submit="main.addShow()" novalidate>
+            <div class="form-group" ng-class="{ ' has-error' : main.addForm.fullname.$invalid && !main.addForm.fullname.$pristine}">
                 <label for="fullname"></label>
                 <i class="fa-solid fa-user"></i>
-                <input type="text" class="form-control" name="fullname" ng-model="main.new.fullname"
-                    placeholder="full name" required>
+                <input type="text" class="form-control" name="fullname" ng-model="main.new.fullname" placeholder="full name"  />
             </div>
+            <p class="help-block" ng-show="main.addForm.fullname.$invalid && !main.addForm.fullname.$pristine">
+                Full name can not be blank!
+            </p>
 
-            <div class="form-group">
+
+            <div class="form-group" ng-class="{ 'has-error' : main.addForm.username.$invalid && !main.addForm.username.$pristine}">
                 <label for="username"></label>
                 <i class="fa-solid fa-user"></i>
-                <input type="text" class="form-control" name="username" ng-model="main.new.username"
-                    placeholder="username" required>
+                <input type="text" class="form-control" name="username" ng-model="main.new.username" placeholder="username"  required>
             </div>
+            <p class="help-block" ng-show="main.addForm.username.$invalid && !main.addForm.username.$pristine">
+                Username can not be blank!
+            </p>
 
-            <div class="form-group">
+            <div class="form-group" ng-class="{ ' has-error' : main.addForm.email.$invalid && !main.addForm.email.$pristine}">
                 <label for="email"></label>
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" class="form-control" name="email" ng-model="main.new.email" placeholder="email"
-                    required>
+                <input type="email" class="form-control" name="email" ng-model="main.new.email" placeholder="email" 
+                    >
             </div>
+            <p class="help-block" ng-show="main.addForm.email.$invalid && !main.addForm.email.$pristine">
+                Please enter an email valid!
+            </p>
 
-            <div class="form-group">
+            <div class="form-group" ng-class="{ 'has-error' : main.addForm.phone.$invalid && !main.addForm.phone.$pristine}">
                 <label for="phone"></label>
                 <i class="fa-solid fa-phone"></i>
                 <input type="text" class="form-control" name="phone" ng-model="main.new.phone"
-                    placeholder="phone number" required>
+                    placeholder="phone number" ng-minlength="9" ng-maxlength="9" >
             </div>
+            <p class="help-block" ng-show="main.addForm.phone.$error.minlength">Phone number must have 9 number.</p>
+            <p class="help-block" ng-show="main.addForm.phone.$error.maxlength">Phone number must have 9 number.</p>
+
             <input type="hidden" ng-model="main.new.id">
 
             <div class="btn">
@@ -100,10 +111,10 @@
                     <td>{{ show.username }}</td>
                     <td class="email">{{ show.email }}</td>
                     <td>{{ show.phone }}</td>
-                 
+
                     <td>
                         <a href="#" ng-click="main.edit(show.id)">edit</a> |
-                        <a href="#" ng-click="main.delete(show.id)">delete</a>
+                        <a style="color: #f2796e"href="#" ng-click="main.delete(show.id)">delete</a>
                     </td>
 
                 </tr>

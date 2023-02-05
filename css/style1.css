@@ -58,6 +58,12 @@ body{
     margin-left: 13px;;
 }
 
+.help-block{
+    margin-left: 13px;
+    color: #f2796e;
+    font-size: 12px;
+}
+
 
 .form-group input{
     border: none;
