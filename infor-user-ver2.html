@@ -8,65 +8,80 @@
     <title>Informtion User Log in </title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
-   
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="/js/app1.js"></script>
 
 </head>
 
 <body ng-app="app" ng-controller="MainController as main">
 
-    <div class="containner">
+    <div class="container">
 
-        <h1>{{main.title}}</h1>
+
+        <h1 class="title">{{main.title}}</h1>
+
+        <!--add information-->
         <h3>Add new account</h3>
-
         <form name="main.addForm" class="form" ng-submit="main.addShow()">
             <div class="form-group">
-                <label for="fullname">full name</label>
-                <input type="text" class="form-control" name="fullname" ng-model="main.new.fullname" required>
+                <label for="fullname"></label>
+                <i class="fa-solid fa-user"></i>
+                <input type="text" class="form-control" name="fullname" ng-model="main.new.fullname"
+                    placeholder="full name" required>
             </div>
 
             <div class="form-group">
-                <label for="username">username</label>
-                <input type="text" class="form-control" name="username" ng-model="main.new.username" required>
+                <label for="username"></label>
+                <i class="fa-solid fa-user"></i>
+                <input type="text" class="form-control" name="username" ng-model="main.new.username"
+                    placeholder="username" required>
             </div>
 
             <div class="form-group">
-                <label for="email">email</label>
-                <input type="email" class="form-control" name="email" ng-model="main.new.email" required>
+                <label for="email"></label>
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" class="form-control" name="email" ng-model="main.new.email" placeholder="email"
+                    required>
             </div>
 
             <div class="form-group">
-                <label for="phone">phone number</label>
-                <input type="text" class="form-control" name="phone" ng-model="main.new.phone" required>
+                <label for="phone"></label>
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" class="form-control" name="phone" ng-model="main.new.phone"
+                    placeholder="phone number" required>
             </div>
             <input type="hidden" ng-model="main.new.id">
 
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <div class="btn">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </div>
 
         </form>
 
+
+
+        <!--search information-->
+        <h3>List Accounts</h3>
+
         <div class="input-group">
+
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-search"></span>
             </span>
-
             <input type="text" class="form-control" ng-model="main.searchInput">
         </div>
 
-        <h3>List Accounts</h3>
+        <!--display list accounts-->
 
         <select class="form-control pull-right" ng-model="main.order"
             ng-options="order as order.title for order in main.orders"></select>
         <div class="clearfix"></div>
-
-
-
         <table class="table table-striped table-bordered">
             <thead>
                 <tr>
@@ -83,7 +98,7 @@
                 orderBy:main.order.key:main.order.reverse">
                     <td>{{ show.fullname }}</td>
                     <td>{{ show.username }}</td>
-                    <td>{{ show.email }}</td>
+                    <td class="email">{{ show.email }}</td>
                     <td>{{ show.phone }}</td>
                     <td>{{ show.id }}</td>
                     <td>
@@ -93,10 +108,7 @@
 
                 </tr>
             </tbody>
-
         </table>
-
-
 
     </div>
 
