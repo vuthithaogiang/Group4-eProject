@@ -27,7 +27,7 @@ td{
     max-width: 450px;
     margin-bottom: 5px;
     border-radius: 5px ;
-    border-color: #999;
+    border-color: #ccc;
     padding: 5px;
 }
 
@@ -41,3 +41,18 @@ td{
     margin-left: 160px;
     
 }
+
+.input-group{
+    margin-bottom: 15px;
+}
+
+.input-group span{
+    width: 30px;
+    
+}
+
+.input-group span span{
+    margin-left: -10px;;
+}
+
+

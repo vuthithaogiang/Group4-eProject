@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informtion User Log in </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style1.css">
+    <script src="/js/app1.js"></script>
+
+</head>
+
+<body ng-app="app" ng-controller="MainController as main">
+
+    <div class="containner">
+
+        <h1>{{main.title}}</h1>
+        <h3>Add new account</h3>
+
+        <form name="main.addForm" class="form" ng-submit="main.addShow()">
+            <div class="form-group">
+                <label for="fullname">full name</label>
+                <input type="text" class="form-control" name="fullname" ng-model="main.new.fullname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="username">username</label>
+                <input type="text" class="form-control" name="username" ng-model="main.new.username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">email</label>
+                <input type="email" class="form-control" name="email" ng-model="main.new.email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">phone number</label>
+                <input type="text" class="form-control" name="phone" ng-model="main.new.phone" required>
+            </div>
+            <input type="hidden" ng-model="main.new.id">
+
+            <button type="submit" class="btn btn-primary">Sign in</button>
+
+        </form>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>
+            </span>
+
+            <input type="text" class="form-control" ng-model="main.searchInput">
+        </div>
+
+        <h3>List Accounts</h3>
+
+        <select class="form-control pull-right" ng-model="main.order"
+            ng-options="order as order.title for order in main.orders"></select>
+        <div class="clearfix"></div>
+
+
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Full name</th>
+                    <th>User name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="show in main.shows | filter:main.searchInput |
+                orderBy:main.order.key:main.order.reverse">
+                    <td>{{ show.fullname }}</td>
+                    <td>{{ show.username }}</td>
+                    <td>{{ show.email }}</td>
+                    <td>{{ show.phone }}</td>
+                    <td>{{ show.id }}</td>
+                    <td>
+                        <a href="#" ng-click="main.edit(show.id)">edit</a> |
+                        <a href="#" ng-click="main.delete(show.id)">delete</a>
+                    </td>
+
+                </tr>
+            </tbody>
+
+        </table>
+
+
+
+    </div>
+
+</body>
+
+</html>

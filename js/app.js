@@ -18,6 +18,7 @@ app.controller('ContactController', function ($scope){
 
         }
         else{
+
             for( i in $scope.contacts){
                 if($scope.contacts[i].id == $scope.newcontact.id){
                     $scope.contacts[i] = $scope.newcontact;
@@ -40,11 +41,23 @@ app.controller('ContactController', function ($scope){
     };
 
     $scope.edit = function (id) {
+        console.log(id);
         for( i in $scope.contacts){
+            console.log(i);
             if($scope.contacts[i].id == id){
                 $scope.newcontact = angular.copy($scope.contacts[i]);
             }
         }
+    };
+
+    $scope.searchContact = function () {
+        for(i in $scope.contacts){
+            if($scope.contacts[i].name == document.querySelector("#content").value){
+
+                console.log('the same');
+            }
+        }
+
     }
 
 
