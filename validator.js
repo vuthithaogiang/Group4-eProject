@@ -1,5 +1,4 @@
-
-//constructor
+//constructer
 function Validator(options) {
 
     function getParent(element, selector) {
