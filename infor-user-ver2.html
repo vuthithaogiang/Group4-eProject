@@ -29,47 +29,48 @@
         <!--add information-->
         <h3>Add new account</h3>
         <form name="main.addForm" class="form" ng-submit="main.addShow()" novalidate>
-            <div class="form-group" ng-class="{ ' has-error' : main.addForm.fullname.$invalid && !main.addForm.fullname.$pristine}">
+
+            <div class="form-group">
                 <label for="fullname"></label>
                 <i class="fa-solid fa-user"></i>
-                <input type="text" class="form-control" name="fullname" ng-model="main.new.fullname" placeholder="full name"  />
+                <input type="text" class="form-control" name="fullname" ng-model="main.new.fullname"
+                    placeholder="full name" />
+                <span class="form-message"></span>
+
             </div>
-            <p class="help-block" ng-show="main.addForm.fullname.$invalid && !main.addForm.fullname.$pristine">
-                Full name can not be blank!
-            </p>
 
 
-            <div class="form-group" ng-class="{ 'has-error' : main.addForm.username.$invalid && !main.addForm.username.$pristine}">
+            <div class="form-group">
                 <label for="username"></label>
                 <i class="fa-solid fa-user"></i>
-                <input type="text" class="form-control" name="username" ng-model="main.new.username" placeholder="username"  required>
-            </div>
-            <p class="help-block" ng-show="main.addForm.username.$invalid && !main.addForm.username.$pristine">
-                Username can not be blank!
-            </p>
+                <input type="text" class="form-control" name="username" ng-model="main.new.username"
+                    placeholder="username" required>
+                <span class="form-message"></span>
 
-            <div class="form-group" ng-class="{ ' has-error' : main.addForm.email.$invalid && !main.addForm.email.$pristine}">
+            </div>
+            
+
+            <div class="form-group">
                 <label for="email"></label>
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" class="form-control" name="email" ng-model="main.new.email" placeholder="email" 
-                    >
-            </div>
-            <p class="help-block" ng-show="main.addForm.email.$invalid && !main.addForm.email.$pristine">
-                Please enter an email valid!
-            </p>
+                <input type="email" class="form-control" name="email" ng-model="main.new.email" placeholder="email">
+                <span class="form-message"></span>
 
-            <div class="form-group" ng-class="{ 'has-error' : main.addForm.phone.$invalid && !main.addForm.phone.$pristine}">
+            </div>
+            
+            <div class="form-group">
                 <label for="phone"></label>
                 <i class="fa-solid fa-phone"></i>
                 <input type="text" class="form-control" name="phone" ng-model="main.new.phone"
-                    placeholder="phone number" ng-minlength="9" ng-maxlength="9" >
+                    placeholder="phone number" ng-minlength="9" ng-maxlength="9">
+                <span class="form-message"></span>
+
             </div>
-            <p class="help-block" ng-show="main.addForm.phone.$error.minlength">Phone number must have 9 number.</p>
-            <p class="help-block" ng-show="main.addForm.phone.$error.maxlength">Phone number must have 9 number.</p>
+            
 
             <input type="hidden" ng-model="main.new.id">
 
-            <div class="btn">
+            <div class="form-submit">
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
 
@@ -114,7 +115,7 @@
 
                     <td>
                         <a href="#" ng-click="main.edit(show.id)">edit</a> |
-                        <a style="color: #f2796e"href="#" ng-click="main.delete(show.id)">delete</a>
+                        <a style="color: #f2796e" href="#" ng-click="main.delete(show.id)">delete</a>
                     </td>
 
                 </tr>
@@ -124,5 +125,6 @@
     </div>
 
 </body>
+
 
 </html>
