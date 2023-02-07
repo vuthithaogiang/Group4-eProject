@@ -366,6 +366,15 @@ app.controller('MainController', function () {
 
             id: 4
         },
+        {
+            fullname: 'Nguyen Minh Duc',
+            password: '1234567',
+            email:'minhduc0110@gmail.com',
+            phone: '07071 38 68',
+            province: 'Hai Phong',
+
+            id: 5
+        },
 
     ];
 
@@ -394,11 +403,17 @@ app.controller('MainController', function () {
 
         },
         {
-            is: 4,
+            id: 4,
             title: 'Address Descending',
             key: 'province',
             reverse: true
-        }
+        },
+        {
+            id:5,
+            title: 'Address Descending',
+            key: 'province',
+            reverse: true, 
+        },
     ];
 
 
