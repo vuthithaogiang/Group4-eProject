@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User list</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/user-list.css">
+</head>
+
+<body ng-app="app" ng-controller="MainController as main">
+
+    <div class="container">
+        <div class="main">
+            <div class="form">
+                <h3>Please fill infor in fields below:</h3>
+                <a class="list" href="#list-user">User-list</a>
+
+                <form action="" method="POST" name="main.addForm" id="form-1" ng-submit="main.addShow()">
+
+                    <div class="spacer"></div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter name" class="form-control"
+                            ng-model="main.new.name">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter email" class="form-control"
+                            ng-model="main.new.email">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Enter password"
+                            class="form-control" ng-model="main.new.password">
+                        <span class="form-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" name="phone" id="phone" placeholder="Enter phone number" class="form-control"
+                            ng-model="main.new.phone">
+                        <span class="form-message"></span>
+
+                    </div>
+
+                    <input type="hidden" ng-model="main.new.id">
+
+                    <button class="form-submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="list-user" id="list-user">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Phone number</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="show in main.shows">
+                        <td>{{ show.name }}</td>
+                        <td>{{ show.email }}</td>
+                        <td>{{ show.password }}</td>
+                        <td>{{ show.phone }}</td>
+
+                        <td>
+                            <a href="#" ng-click="main.edit(show.id)">edit</a> |
+                            <a style="color: #f2796e" href="#" ng-click="main.delete(show.id)">delete</a>
+                        </td>
+
+                    </tr>
+                    <tr id="infor"></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+
+
+
+</body>
+<script src="/js/app2.js"></script>
+
+</html>
