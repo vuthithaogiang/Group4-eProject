@@ -403,11 +403,17 @@ app.controller('MainController', function () {
 
         },
         {
-            is: 4,
+            id: 4,
             title: 'Address Descending',
             key: 'province',
             reverse: true
-        }
+        },
+        {
+            id:5,
+            title: 'Address Descending',
+            key: 'province',
+            reverse: true, 
+        },
     ];
 
 
